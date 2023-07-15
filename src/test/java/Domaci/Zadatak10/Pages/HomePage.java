@@ -1,0 +1,27 @@
+package Domaci.Zadatak10.Pages;
+
+import Domaci.Zadatak10.Base.BaseTest;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
+
+public class HomePage extends BaseTest {
+
+    public HomePage() {
+        PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(css = ".card.mt-4.top-card")
+    public List<WebElement> cards;
+
+    public void clickOnElementsCard() {
+        for (WebElement card : cards) {
+            if (card.getText().equals("Elements")) {
+                card.click();
+                break;
+            }
+        }
+    }
+}
